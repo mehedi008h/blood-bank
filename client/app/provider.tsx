@@ -1,10 +1,12 @@
 "use client";
 
-import React from "react";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 
-const Provider = ({ children }: React.PropsWithChildren) => {
-    return <AntdRegistry>{children}</AntdRegistry>;
-};
-
-export default Provider;
+export function Providers({ children }: { children: React.ReactNode }) {
+    return (
+        <NextThemesProvider attribute="class" defaultTheme="dark">
+            <AntdRegistry>{children}</AntdRegistry>
+        </NextThemesProvider>
+    );
+}
