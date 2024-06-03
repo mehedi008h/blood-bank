@@ -84,9 +84,11 @@ const LoginForm = () => {
                                 "Password must be at least 8 characters long",
                         },
                     ]}
-                    className="mt-8"
                 >
-                    <Input.Password className="h-10" placeholder="********" />
+                    <Input.Password
+                        className="h-10 mt-2"
+                        placeholder="********"
+                    />
                 </Form.Item>
 
                 <div className="flex items-center justify-between">

@@ -1,55 +1,64 @@
 import React from "react";
-import { ArrowLeftOutlined } from "@ant-design/icons";
-import Link from "next/link";
-import ThemeSwitcher from "../common/ThemeSwitcher";
-import { BiDonateBlood } from "react-icons/bi";
+import { Avatar, Divider } from "antd";
+import {
+    FacebookFilled,
+    GithubFilled,
+    GoogleCircleFilled,
+} from "@ant-design/icons";
 
 interface Props {
     children: React.ReactNode;
-    footerText: string;
-    footerLinkText: string;
-    footerLink: string;
+    title: string;
+    subtitle: string;
+    socialLogin?: boolean;
 }
 
 const AuthWrapper = ({
     children,
-    footerText,
-    footerLinkText,
-    footerLink,
+    title,
+    subtitle,
+    socialLogin = false,
 }: Props) => {
     return (
-        <div className="w-full min-h-screen p-5 flex flex-col justify-between items-center">
-            {/* header  */}
-            <div className="w-full flex justify-between items-center">
-                {/* logo  */}
-                <div className="text-xl font-semibold text-neutral-500">
-                    <Link href={"/"}>
-                        <BiDonateBlood size={40} color="red" />
-                    </Link>
-                </div>
+        <div className="w-full min-h-screen p-5 flex flex-col justify-center items-center">
+            <div className="xl:w-[400px] lg:w-[400px] md:w-[400px] w-full px-2 mx-auto">
+                {/* heading  */}
+                <h3 className="text-3xl font-semibold text-neutral-700 dark:text-neutral-200 text-center">
+                    {title}
+                </h3>
+                <p className="text-sm font-normal text-neutral-500 dark:text-neutral-300 mt-2 mb-5 text-center ">
+                    {subtitle}
+                </p>
 
-                <div className="flex gap-5 items-center">
-                    {/* back link  */}
-                    <Link href={"/"} className="flex items-center gap-2">
-                        <ArrowLeftOutlined color="black" /> <p>Go Back</p>
-                    </Link>
-                    <ThemeSwitcher />
-                </div>
+                {children}
+
+                {/* social media login  */}
+                {socialLogin && (
+                    <>
+                        {/* divider  */}
+                        <Divider className="dark:border-neutral-400">
+                            <p className="dark:text-neutral-400">OR</p>
+                        </Divider>
+                        <div className="flex justify-center items-center gap-4">
+                            <Avatar
+                                size={40}
+                                icon={<GoogleCircleFilled />}
+                                className="text-[#BD3032] bg-neutral-300 hover:bg-neutral-300 dark:bg-neutral-500 dark:hover:bg-neutral-600 cursor-pointer transition-all"
+                            />
+                            <Avatar
+                                size={40}
+                                icon={<FacebookFilled />}
+                                className="text-[#1877F2] bg-neutral-300 hover:bg-neutral-300 dark:bg-neutral-500 dark:hover:bg-neutral-600 cursor-pointer transition-all"
+                            />
+                            <Avatar
+                                size={40}
+                                icon={<GithubFilled />}
+                                className="text-black bg-neutral-300 hover:bg-neutral-300 dark:bg-neutral-500 dark:hover:bg-neutral-600 cursor-pointer transition-all"
+                            />
+                        </div>
+                    </>
+                )}
             </div>
-
-            {/* form  */}
-            <div className="w-full">{children}</div>
-
-            {/* footer  */}
-            <h5 className="font-normal text-base mb-2 text-neutral-600 dark:text-neutral-400">
-                {footerText}
-                <Link
-                    href={footerLink}
-                    className="font-semibold text-base ms-1"
-                >
-                    {footerLinkText}
-                </Link>
-            </h5>
         </div>
     );
 };
