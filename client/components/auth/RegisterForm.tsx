@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Form, FormProps, Input } from "antd";
+import { LockOutlined, UserOutlined, MailOutlined } from "@ant-design/icons";
 
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -31,28 +32,46 @@ const RegisterForm = () => {
     return (
         <Form
             name="basic"
+            layout="vertical"
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
-            autoComplete="off"
+            autoComplete="on"
         >
-            <div className="flex justify-between items-center gap-3 mb-2">
+            <div className="flex justify-between items-center gap-3">
                 {/* first name field  */}
                 <Form.Item<FieldType>
                     name="firstName"
+                    label={
+                        <p className="dark:text-neutral-200 text-neutral-600">
+                            First Name
+                        </p>
+                    }
                     rules={[
                         {
                             required: true,
                             message: "Please input your First name!",
                         },
                     ]}
+                    className="text-neutral-400"
                 >
-                    <Input className="h-10" placeholder="Jhon" />
+                    <Input
+                        className="h-10"
+                        prefix={
+                            <UserOutlined className="site-form-item-icon !text-neutral-500" />
+                        }
+                        placeholder="Jhon"
+                    />
                 </Form.Item>
 
                 {/* email field  */}
                 <Form.Item<FieldType>
                     name="lastName"
+                    label={
+                        <p className="dark:text-neutral-200 text-neutral-600">
+                            Last Name
+                        </p>
+                    }
                     rules={[
                         {
                             required: true,
@@ -60,12 +79,23 @@ const RegisterForm = () => {
                         },
                     ]}
                 >
-                    <Input className="h-10" placeholder="Doe" />
+                    <Input
+                        className="h-10"
+                        prefix={
+                            <UserOutlined className="site-form-item-icon !text-neutral-500" />
+                        }
+                        placeholder="Doe"
+                    />
                 </Form.Item>
             </div>
             {/* email field  */}
             <Form.Item<FieldType>
                 name="email"
+                label={
+                    <p className="dark:text-neutral-200 text-neutral-600">
+                        Email
+                    </p>
+                }
                 rules={[
                     {
                         required: true,
@@ -73,12 +103,23 @@ const RegisterForm = () => {
                     },
                 ]}
             >
-                <Input className="h-10 mt-2" placeholder="xyz@example.com" />
+                <Input
+                    className="h-10"
+                    prefix={
+                        <MailOutlined className="site-form-item-icon !text-neutral-500" />
+                    }
+                    placeholder="xyz@example.com"
+                />
             </Form.Item>
 
             {/* password field  */}
             <Form.Item<FieldType>
                 name="password"
+                label={
+                    <p className="dark:text-neutral-200 text-neutral-600">
+                        Password
+                    </p>
+                }
                 rules={[
                     {
                         required: true,
@@ -88,9 +129,16 @@ const RegisterForm = () => {
                         min: 8,
                         message: "Password must be at least 8 characters long",
                     },
+                    { type: "url", warningOnly: true },
                 ]}
             >
-                <Input.Password className="h-10 mt-2" placeholder="********" />
+                <Input.Password
+                    className="h-10"
+                    prefix={
+                        <LockOutlined className="site-form-item-icon !text-neutral-500" />
+                    }
+                    placeholder="********"
+                />
             </Form.Item>
 
             {/* sign in button  */}

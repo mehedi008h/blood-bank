@@ -1,4 +1,4 @@
-import { AuthWrapper } from "@/components";
+import { AuthWrapper, VerifyForm } from "@/components";
 import React from "react";
 
 const VerifyEmail = () => {
@@ -7,7 +7,7 @@ const VerifyEmail = () => {
             title="Verify your account"
             subtitle="  Enter your verification code"
         >
-            hello
+            <VerifyForm />
         </AuthWrapper>
     );
 };
