@@ -5,7 +5,7 @@ const VerifyEmail = () => {
     return (
         <AuthWrapper
             title="Verify your account"
-            subtitle="  Enter your verification code"
+            subtitle="Enter your verification code"
         >
             <VerifyForm />
         </AuthWrapper>

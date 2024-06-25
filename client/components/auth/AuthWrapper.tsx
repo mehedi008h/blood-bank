@@ -21,7 +21,7 @@ const AuthWrapper = ({
 }: Props) => {
     return (
         <div className="w-full min-h-screen p-5 flex flex-col justify-center items-center">
-            <div className="xl:w-[400px] lg:w-[400px] md:w-[400px] w-full px-2 mx-auto">
+            <div className="xl:w-[500px] lg:w-[400px] md:w-[400px] w-full px-2 mx-auto">
                 {/* heading  */}
                 <h3 className="text-3xl font-semibold text-neutral-700 dark:text-neutral-200 text-center">
                     {title}

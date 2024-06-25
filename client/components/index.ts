@@ -7,3 +7,6 @@ export { default as RegisterForm } from "./auth/RegisterForm";
 export { default as AuthWrapper } from "./auth/AuthWrapper";
 export { default as AuthSidebar } from "./auth/AuthSidebar";
 export { default as VerifyForm } from "./auth/VerifyForm";
+export { default as UpdateProfileForm } from "./auth/UpdateProfileForm";
+export { default as AddressForm } from "./auth/AddressForm";
+export { default as ImageUpload } from "./auth/ImageUpload";

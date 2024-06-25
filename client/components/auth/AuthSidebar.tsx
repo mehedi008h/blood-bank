@@ -72,14 +72,19 @@ const AuthSidebar = () => {
                             {
                                 title: (
                                     <h2 className="text-neutral-600 dark:text-neutral-200 font-semibold">
-                                        Verify your account
+                                        Update your account
                                     </h2>
                                 ),
                                 description: (
                                     <p className="text-neutral-500 dark:text-neutral-400">
-                                        Enter your verification code
+                                        Provide your information
                                     </p>
                                 ),
+                                icon: (
+                                    <UserOutlined className="!text-neutral-400" />
+                                ),
+                                onClick: () =>
+                                    router.push("/auth/update-profile"),
                             },
                         ]}
                     />
